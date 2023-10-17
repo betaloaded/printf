@@ -1,11 +1,11 @@
 #include "main.h"
 /**
- * print_20 - prints % sign
+ * print_37 - prints % sign
  * Return: integer
  */
 
-int print_20(void)
+int print_37(void)
 {
-	_putchar(20);
+	_putchar(37);
 	return (1);
 }

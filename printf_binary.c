@@ -1,34 +1,42 @@
 #include "main.h"
 
 /**
- * printf_bin - prints a binary number.
- * @val: arguments.
- * Return: 1.
+ * print_binary - Converts a number from base 10 to binary
+ * @list: List of arguments passed to this function
+ * Return: The length of the number printed
  */
-int printf_bin(va_list val)
-{
-	int flag = 0;
-	int cont = 0;
-	int i, a = 1, b;
-	unsigned int num = va_arg(val, unsigned int);
-	unsigned int p;
 
-	for (i = 0; i < 32; i++)
+int print_binary(va_list list)
+{
+	unsigned int num;
+	int i, len;
+	char *str;
+	char *rev_str;
+
+	num = va_arg(list, unsigned int);
+	if (num == 0)
+		return (_putchar('0'));
+	if (num < 1)
+		return (-1);
+	len = base_len(num, 2);
+	str = malloc(sizeof(char) * len + 1);
+	if (str == NULL)
+		return (-1);
+
+	for (i = 0; num > 0; i++)
 	{
-		p = ((a << (31 - i)) & num);
-		if (p >> (31 - i))
-			flag = 1;
-		if (flag)
-		{
-			b = p >> (31 - i);
-			_putchar(b + 48);
-			cont++;
-		}
+		if (num % 2 == 0)
+			str[i] = '0';
+		else
+			str[i] = '1';
+		num = num / 2;
 	}
-	if (cont == 0)
-	{
-		cont++;
-		_putchar('0');
-	}
-	return (cont);
+	str[i] = '\0';
+	rev_str = rev_string(str);
+	if (rev_str == NULL)
+		return (-1);
+	write_base(rev_str);
+	free(str);
+	free(rev_str);
+	return (len);
 }

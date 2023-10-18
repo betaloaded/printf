@@ -1,16 +1,34 @@
 #include "main.h"
 
 /**
- * print_binary - function that prints the binary representation of a number
- * @n: number to be printed in binary
- * @printed: hold the number of characters printed
+ * printf_bin - prints a binary number.
+ * @val: arguments.
+ * Return: 1.
  */
-void print_binary(unsigned int n, unsigned int *printed)
+int printf_bin(va_list val)
 {
-	if (n > 1)
+	int flag = 0;
+	int cont = 0;
+	int i, a = 1, b;
+	unsigned int num = va_arg(val, unsigned int);
+	unsigned int p;
+
+	for (i = 0; i < 32; i++)
 	{
-		*printed += 1;
-		print_binary(n >> 1, printed);
+		p = ((a << (31 - i)) & num);
+		if (p >> (31 - i))
+			flag = 1;
+		if (flag)
+		{
+			b = p >> (31 - i);
+			_putchar(b + 48);
+			cont++;
+		}
 	}
-	_putchar((n & 1) + '0');
+	if (cont == 0)
+	{
+		cont++;
+		_putchar('0');
+	}
+	return (cont);
 }

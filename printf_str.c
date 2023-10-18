@@ -1,27 +1,20 @@
 #include "main.h"
+
 /**
- * _strlen - Returns the length of a string.
- * @str: string pointer
- * Return: 1
+ * print_string - Prints a string
+ * @list: list of arguments
+ * Return: Will return the amount of characters printed.
  */
-int _strlen(char *str)
+
+int print_string(va_list list)
 {
 	int i;
+	char *str;
 
-	for (i = 0; str[i] != 0; i++)
-
-	return (i);
-
-}
-/**
- * _strlenc - Strlen function but applied for constant char pointer str
- * @str: char pointer
- * Return: i
- */
-int _strlenc(const char *str)
-{
-	int i;
-
-	for (i = 0; str[i] != 0; i++);
+	str = va_arg(list, char *);
+	if (str == NULL)
+		str = "(null)";
+	for (i = 0; str[i] != '\0'; i++)
+		_putchar(str[i]);
 	return (i);
 }

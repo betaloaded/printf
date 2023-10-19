@@ -12,7 +12,7 @@
  *
  * Return: int
  */
-typedef struct structprint
+typedef struct format
 {
 	char *q;
 	int (*u)(char *format, va_list);

@@ -25,12 +25,12 @@ int print_binary(va_list val)
 			count++;
 		}
 	}
-	if (cont == 0)
+	if (count == 0)
 	{
-		cont++;
+		count++;
 		_putchar('0');
 	}
-	 return (cont);
+	 return (count);
 }
 
 

@@ -7,7 +7,13 @@
 int _printf(const char *format, ...)
 {
 	check c[] = {
-		{"%s", printf_string}, {"%c", printf_char},{"%%", print_37}, {"%d", print_dec}, {"%i", print_int}, {"%r", printf_revs}, {"%R", print_rot13}, {"%b", print_binary}, {"%u", print_unsigned},{"%o", print_oct}, {"%x", print_hex}, {"%X", print_Hex}, {"%S", print_exclusive_string}, {"%p", print_pointer}, {"%r", printf_revs}
+		{"%s", printf_string}, {"%c", printf_char},
+		{"%%", print_37}, {"%d", print_dec},
+		{"%i", print_int}, {"%r", printf_revs},
+		{"%R", print_rot13}, {"%b", print_binary},
+		{"%u", print_unsigned}, {"%o", print_oct},
+		{"%x", print_hex}, {"%X", print_Hex},
+		{"%S", print_exclusive_string}, {"%p", print_pointer}
 	};
 
 	va_list args;
